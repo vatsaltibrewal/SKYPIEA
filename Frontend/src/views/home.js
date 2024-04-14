@@ -1,17 +1,111 @@
-import React from 'react'
+import React,{ useRef } from 'react'
 import { Link } from 'react-router-dom'
 
 import Script from 'dangerous-html/react'
 import { Helmet } from 'react-helmet'
+import { useState,useEffect } from 'react'
+import abi from "./contractJson/election.json"
+import { ethers } from 'ethers'
 
 import './home.css'
 
 const Home = (props) => {
+
+  const nameRef = useRef(null);
+
+  const [state, setState] = useState({
+    provider: null,
+    signer: null,
+    contract: null,
+  });
+  const [account, setAccount] = useState("None");
+
+  async function loginAsVoter() {
+
+    const contractAddress = "0x8C7338278FBbDB7358DAe78E119Af47A49127c4e";
+    const contractABI = abi.abi;
+    const inputName = nameRef.current.value;
+
+    // Check if MetaMask is installed
+    if (window.ethereum) {
+      try {
+        // Request MetaMask to connect
+        await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const account = await ethereum.request({
+          method: "eth_requestAccounts",});
+        
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(
+          contractAddress,
+          contractABI,
+          signer
+        );
+        setAccount(account);
+        setState({ provider, signer, contract });
+
+
+
+        const transaction = await contract.asVoter(inputName);
+        
+        window.location.href = '/voting-page';
+      } catch (error) {
+        // User denied account access or MetaMask is not available
+        console.error('MetaMask login error:', error);
+        alert('Failed to login with MetaMask. Please make sure you have MetaMask installed and try again.');
+      }
+    } else {
+      // MetaMask extension is not installed
+      alert('Please install MetaMask extension to login with MetaMask.');
+    }
+  }
+  console.log(account);
+
+  async function loginAsCandidate() {
+
+    const contractAddress = "0x8C7338278FBbDB7358DAe78E119Af47A49127c4e";
+    const contractABI = abi.abi;
+    const inputName = nameRef.current.value;
+
+    // Check if MetaMask is installed
+    if (window.ethereum) {
+      try {
+        // Request MetaMask to connect
+        await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const account = await ethereum.request({
+          method: "eth_requestAccounts",});
+        
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(
+          contractAddress,
+          contractABI,
+          signer
+        );
+        setAccount(account);
+        setState({ provider, signer, contract });
+
+
+
+        const transaction = await contract.asCandidate(inputName);
+        
+        window.location.href = '/voting-page';
+      } catch (error) {
+        // User denied account access or MetaMask is not available
+        console.error('MetaMask login error:', error);
+        alert('Failed to login with MetaMask. Please make sure you have MetaMask installed and try again.');
+      }
+    } else {
+      // MetaMask extension is not installed
+      alert('Please install MetaMask extension to login with MetaMask.');
+    }
+  }
+
   return (
     <div className="home-container">
       <Helmet>
-        <title>Character NFT template</title>
-        <meta property="og:title" content="Character NFT template" />
+        <title>SKYPIEA</title>
+        <meta property="og:title" content="SKYPIEA" />
       </Helmet>
       <header data-thq="thq-navbar" className="home-navbar">
         <span className="home-logo">SKYPIEA</span>
@@ -147,14 +241,15 @@ const Home = (props) => {
           required="true"
           placeholder="Enter Your Name"
           className="home-textinput input"
+          ref={nameRef}
         />
         <h1 className="home-text05">VOTE HERE</h1>
-        <button type="button" className="home-button1 button">
+        <button type="button" className="home-button1 button" onClick={loginAsVoter}>
           VOTER
         </button>
-        <Link to="/voting-page" className="home-navlink button">
+        <button type="button" className="home-navlink button" onClick={loginAsCandidate}>
           CANDIDATE
-        </Link>
+        </button>
       </form>
       <section className="home-description">
         <animate-on-reveal

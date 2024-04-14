@@ -3,39 +3,16 @@ import { Helmet } from 'react-helmet';
 import './voting-page.css';
 
 const VOTINGPAGE = (props) => {
-  // Sample data for the table
-  const initialCandidates = [
-    { id: 1, name: 'John Doe', votes: 100 },
-    { id: 2, name: 'Jane Doe', votes: 150 },
-  ];
-
-  // State to manage candidates data
-  const [candidates, setCandidates] = useState(initialCandidates);
-  const [nameInput, setNameInput] = useState('');
-
-  // Function to handle name input change
-  const handleNameInputChange = (event) => {
-    setNameInput(event.target.value);
-  };
-
-  // Function to add a new candidate
-  const addCandidate = () => {
-    const newCandidate = {
-      id: candidates.length + 1,
-      name: nameInput, // Use the name from the input field
-      votes: 0,
-    };
-    setCandidates([...candidates, newCandidate]);
-    setNameInput(''); // Clear the input after adding candidate
-  };
+  
+  
 
   return (
     <div className="votingpage-container">
       <Helmet>
-        <title>VOTING-PAGE - Character NFT template</title>
+        <title>VOTING-PAGE</title>
         <meta
           property="og:title"
-          content="VOTING-PAGE - Character NFT template"
+          content="VOTING-PAGE"
         />
       </Helmet>
       <form className="votingpage-form">
