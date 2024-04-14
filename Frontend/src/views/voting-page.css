@@ -1,0 +1,92 @@
+.votingpage-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #27272d;
+}
+
+.votingpage-form {
+  top: 191px;
+  left: 410px;
+  width: 585px;
+  height: 439px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.votingpage-text {
+  color: rgb(243, 232, 232);
+}
+
+.votingpage-textinput {
+  top: 261px;
+  left: 119px;
+  position: absolute;
+  background-color: #53a0a4;
+}
+
+.votingpage-button {
+  top: 260px;
+  left: 389px;
+  position: absolute;
+}
+
+.votingpage-button1 {
+  top: 80px;
+  left: 389px;
+  position: absolute;
+}
+
+.votingpage-textinput1 {
+  top: 86px;
+  left: 119px;
+  color: #0e0e0d;
+  position: absolute;
+  background-color: #53a0a4;
+}
+
+.votingpage-image {
+  top: 40px;
+  left: -5px;
+  width: 480px;
+  position: absolute;
+  object-fit: cover;
+}
+
+.votingpage-text1 {
+  color: #e0dddd;
+}
+
+.votingpage-table-container {
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: 60px;
+  overflow: auto;
+  max-height: 170px; /* Set a maximum height for the table container */
+  overflow-y: auto;
+}
+
+.votingpage-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff; /* Set table background color to white */
+}
+
+.votingpage-table th,
+.votingpage-table td {
+  padding: 10px;
+  border: 1px solid #fff;
+  color: #000; /* Set text color to black */
+}
+
+@media (max-width: 767px) {
+  .votingpage-table th,
+  .votingpage-table td {
+    font-size: 14px;
+  }
+}
