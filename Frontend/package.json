@@ -4,12 +4,15 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "^7.0.0-alpha.0",
+    "dangerous-html": "0.1.13",
+    "flatpickr": "^4.6.13",
+    "prop-types": "15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-router-dom": "^5.2.0",
+    "react-flatpickr": "^3.10.13",
     "react-helmet": "^6.1.0",
-    "dangerous-html": "0.1.13",
-    "prop-types": "15.7.2"
+    "react-router-dom": "^5.2.0",
+    "web3": "^4.7.0"
   },
   "scripts": {
     "start": "craco start",
@@ -18,7 +21,7 @@
     "eject": "craco eject"
   },
   "engines": {
-    "node": "18.x"
+    "node": "20.x"
   },
   "browserslist": {
     "production": [

@@ -21,7 +21,7 @@ const App = () => {
         <Route component={VOTINGPAGE} exact path="/voting-page" />
         <Route component={Home} exact path="/" />
         <Route component={NotFound} path="**" />
-        <Redirect to="**" />
+        
       </Switch>
     </Router>
   )

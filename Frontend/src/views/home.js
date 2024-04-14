@@ -11,7 +11,6 @@ import './home.css'
 
 const Home = (props) => {
 
-  const nameRef = useRef(null);
 
   const [state, setState] = useState({
     provider: null,
@@ -24,7 +23,7 @@ const Home = (props) => {
 
     const contractAddress = "0x8C7338278FBbDB7358DAe78E119Af47A49127c4e";
     const contractABI = abi.abi;
-    const inputName = nameRef.current.value;
+    //const inputName = nameRef.current.value;
 
     // Check if MetaMask is installed
     if (window.ethereum) {
@@ -33,7 +32,6 @@ const Home = (props) => {
         await window.ethereum.request({ method: 'eth_requestAccounts' });
         const account = await ethereum.request({
           method: "eth_requestAccounts",});
-        
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
         const contract = new ethers.Contract(
@@ -45,10 +43,13 @@ const Home = (props) => {
         setState({ provider, signer, contract });
 
 
-
-        const transaction = await contract.asVoter(inputName);
-        
-        window.location.href = '/voting-page';
+        const Description = document.querySelector("#name").value;
+        console.log(Description, contract);
+        const transaction = await contract.asVoter(Description);
+        await transaction.wait();
+        console.log(transaction);
+        props.history.push('/voting-page');
+        //window.location.href = '/voting-page';
       } catch (error) {
         // User denied account access or MetaMask is not available
         console.error('MetaMask login error:', error);
@@ -59,13 +60,13 @@ const Home = (props) => {
       alert('Please install MetaMask extension to login with MetaMask.');
     }
   }
-  console.log(account);
+  console.log(state);
 
   async function loginAsCandidate() {
 
     const contractAddress = "0x8C7338278FBbDB7358DAe78E119Af47A49127c4e";
     const contractABI = abi.abi;
-    const inputName = nameRef.current.value;
+    //const inputName = nameRef.current.value;
 
     // Check if MetaMask is installed
     if (window.ethereum) {
@@ -86,10 +87,13 @@ const Home = (props) => {
         setState({ provider, signer, contract });
 
 
-
-        const transaction = await contract.asCandidate(inputName);
-        
-        window.location.href = '/voting-page';
+        const Description = document.querySelector("#name").value;
+        console.log(Description, contract);
+        const transaction = await contract.asCandidate(Description);
+        await transaction.wait();
+        console.log(transaction);
+        props.history.push('/voting-page');
+        //window.location.href = '/voting-page';
       } catch (error) {
         // User denied account access or MetaMask is not available
         console.error('MetaMask login error:', error);
@@ -241,7 +245,8 @@ const Home = (props) => {
           required="true"
           placeholder="Enter Your Name"
           className="home-textinput input"
-          ref={nameRef}
+          id="name"
+          name="name"
         />
         <h1 className="home-text05">VOTE HERE</h1>
         <button type="button" className="home-button1 button" onClick={loginAsVoter}>

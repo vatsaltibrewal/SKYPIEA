@@ -1,9 +1,59 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import './voting-page.css';
 
+import abi from "./contractJson/election.json"
+import { ethers } from 'ethers'
+
 const VOTINGPAGE = (props) => {
   
+  const [state, setState] = useState({
+    provider: null,
+    signer: null,
+    contract: null,
+  });
+  const [account, setAccount] = useState("None");
+
+  useEffect(() => {
+    const loadReports = async () => {
+        const contractAddress = "0x8C7338278FBbDB7358DAe78E119Af47A49127c4e";
+        const contractABI = abi.abi;
+        if (window.ethereum) {
+            const provider = new ethers.providers.Web3Provider(ethereum);
+            const signer = provider.getSigner();
+            const contract = new ethers.Contract(
+                contractAddress,
+                contractABI,
+                signer
+            );
+            setAccount(account);
+            setState({ provider, signer, contract });
+        } else {
+            console.log('Please install MetaMask or similar extension to use Ethereum features');
+        }
+    };
+    loadReports();
+  }, []);
+
+  const [report, setreport] = useState([]);
+  const { contract } = state;
+  useEffect(() => {
+    const reportsMessage = async () => {
+      const memos = await contract.viewCount();
+      setreport(memos);
+    };
+    contract && reportsMessage();
+  }, [contract]);
+  console.log(report);
+
+
+  async function vote(){
+    const Description = document.querySelector("#id").value;
+    console.log(Description, contract);
+    const transaction = await contract.Vote(Description);
+    await transaction.wait();
+    console.log(transaction);
+  }
   
 
   return (
@@ -17,33 +67,28 @@ const VOTINGPAGE = (props) => {
       </Helmet>
       <form className="votingpage-form">
         <h1 className="votingpage-text">VOTE HERE............</h1>
-        <input
-          type="text"
-          value={nameInput}
-          onChange={handleNameInputChange} // Handle name input change
-          required="true"
-          placeholder="Name"
-          className="votingpage-textinput input"
-        />
-        <button type="button" className="votingpage-button button">
+        
+        <button type="button" className="votingpage-button button" onClick={vote}>
           Vote
         </button>
-        <button type="button" className="votingpage-button1 button" onClick={addCandidate}>
-          Fetch Candidate
-        </button>
+        
         <input
-          type="text"
+          type="number"
           required="true"
           placeholder="ID Of Candidate"
           className="votingpage-textinput1 input"
+          id="id"
+          name="id"
         />
       </form>
       <img alt="image" src="/group%202415.svg" className="votingpage-image" />
       <h1 className="votingpage-text1">DECENTRALIZED VOTING SYSTEM</h1>
+
+      <h1 className="votingpage-text2">LIVE VOTING</h1>
       
       {/* Table */}
       <div className="votingpage-table-container">
-        <table className="votingpage-table">
+        <table className="votingpage-table" id = "VotingTable">
           <thead>
             <tr>
               <th>ID</th>
@@ -52,11 +97,11 @@ const VOTINGPAGE = (props) => {
             </tr>
           </thead>
           <tbody>
-            {candidates.map(candidate => (
-              <tr key={candidate.id}>
-                <td>{candidate.id}</td>
-                <td>{candidate.name}</td>
-                <td>{candidate.votes}</td>
+            {report.map((memo) => (
+              <tr key={Math.random()}>
+                <td>{memo.idCount.toString()}</td>
+                <td>{memo.name}</td>
+                <td>{memo.count.toString()}</td>
               </tr>
             ))}
           </tbody>
