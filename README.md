@@ -47,7 +47,11 @@ This project is licensed under the [MIT License](LICENSE) - because freedom matt
 ## 📧 Contact
 
 For inquiries, feedback, or just to say hello, please reach out to:
+
 -Aditya Sharma at adityashrma1004@gmail.com
+
 -Vatsal Tibrewal at tibrewalvatsal@gmail.com
+
 -Kaushal Surana at kaushalsurana0909@gmail.com
+
 We can't wait to hear from you!
