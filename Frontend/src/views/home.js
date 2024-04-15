@@ -124,7 +124,7 @@ const Home = (props) => {
           </svg>
         </a>
         <a
-          href="https://www.notion.so/TWITTER-699d2c7c226e44b5970e2ffd7cd7409d?pvs=4"
+          href="https://lying-foxtrot-464.notion.site/TWITTER-699d2c7c226e44b5970e2ffd7cd7409d?pvs=4"
           target="_blank"
           rel="noreferrer noopener"
           className="home-link1"
@@ -150,7 +150,7 @@ const Home = (props) => {
             </div>
           </div>
           <a
-            href="https://www.linkedin.com/in/aditya-sharma1004"
+            href="https://lying-foxtrot-464.notion.site/LINKEDIN-bd769ee6313d46fda99027b59fb36a1e?pvs=4"
             target="_blank"
             rel="noreferrer noopener"
             className="home-link2"
