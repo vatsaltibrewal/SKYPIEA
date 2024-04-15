@@ -54,4 +54,6 @@ For inquiries, feedback, or just to say hello, please reach out to:
 
 -Kaushal Surana at kaushalsurana0909@gmail.com
 
+-Parth Mishra at parthm172@gmail.com
+
 We can't wait to hear from you!
