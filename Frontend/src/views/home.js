@@ -21,7 +21,7 @@ const Home = (props) => {
 
   async function loginAsVoter() {
 
-    const contractAddress = "0x8C7338278FBbDB7358DAe78E119Af47A49127c4e";
+    const contractAddress = "0x61a5AdE5e66AD3ED620eeD984201899B58e83b04";
     const contractABI = abi.abi;
     //const inputName = nameRef.current.value;
 
@@ -64,7 +64,7 @@ const Home = (props) => {
 
   async function loginAsCandidate() {
 
-    const contractAddress = "0x8C7338278FBbDB7358DAe78E119Af47A49127c4e";
+    const contractAddress = "0x61a5AdE5e66AD3ED620eeD984201899B58e83b04";
     const contractABI = abi.abi;
     //const inputName = nameRef.current.value;
 
