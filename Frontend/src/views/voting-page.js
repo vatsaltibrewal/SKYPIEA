@@ -93,6 +93,7 @@ const VOTINGPAGE = (props) => {
             <tr>
               <th>ID</th>
               <th>Name</th>
+              <th>Address</th>
               <th>Votes</th>
             </tr>
           </thead>
@@ -100,7 +101,9 @@ const VOTINGPAGE = (props) => {
             {report.map((memo) => (
               <tr key={Math.random()}>
                 <td>{memo.idCount.toString()}</td>
+                
                 <td>{memo.name}</td>
+                <td>{memo.wallet}</td>
                 <td>{memo.count.toString()}</td>
               </tr>
             ))}

@@ -114,7 +114,7 @@ const Home = (props) => {
       <header data-thq="thq-navbar" className="home-navbar">
         <span className="home-logo">SKYPIEA</span>
         <a
-          href="https://github.com/vatsaltibrewal"
+          href="https://github.com/vatsaltibrewal/SKYPIEA"
           target="_blank"
           rel="noreferrer noopener"
           className="home-link"
