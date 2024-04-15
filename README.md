@@ -4,7 +4,7 @@
 
 Welcome to the Decentralized Voting App repository! 🎉 This project aims to revolutionize the way elections are conducted by harnessing the power of blockchain technology. By leveraging smart contracts on the Ethereum network, this application provides a secure, transparent, and tamper-proof platform for democratic decision-making.
 
-You can view the live website at- teamskypiea.netlify.app
+You can view the live website here- [TeamSkypiea](https://teamskypiea.netlify.app/)
 
 ## ✨ Features
 
