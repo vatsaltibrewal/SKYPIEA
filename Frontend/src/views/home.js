@@ -124,7 +124,7 @@ const Home = (props) => {
           </svg>
         </a>
         <a
-          href="https://twitter.com/Iamkaushal0909"
+          href="https://www.notion.so/TWITTER-699d2c7c226e44b5970e2ffd7cd7409d?pvs=4"
           target="_blank"
           rel="noreferrer noopener"
           className="home-link1"
