@@ -40,7 +40,7 @@ npm start
 
 Ready to leave your mark on the future of governance? We welcome contributions of all shapes and sizes! Whether you're squashing bugs, adding features, or enhancing documentation, your efforts are greatly appreciated.
 
-##  License
+## ⚖️ License
 This project is licensed under the [MIT License](LICENSE.md) - because freedom matters!
 
 ## 📧 Contact
