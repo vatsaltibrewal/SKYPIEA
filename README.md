@@ -38,11 +38,9 @@ npm start
 
 ## 🤝 Contributing
 
-Ready to leave your mark on the future of governance? We welcome contributions of all shapes and sizes! Whether you're squashing bugs, adding features, or enhancing documentation, your efforts are greatly appreciated. Please review our [Contributing Guidelines](CONTRIBUTING.md) to get started.
+Ready to leave your mark on the future of governance? We welcome contributions of all shapes and sizes! Whether you're squashing bugs, adding features, or enhancing documentation, your efforts are greatly appreciated.
 
-## 📝 License
 
-This project is licensed under the [MIT License](LICENSE) - because freedom matters!
 
 ## 📧 Contact
 
@@ -55,5 +53,7 @@ For inquiries, feedback, or just to say hello, please reach out to:
 -Kaushal Surana at kaushalsurana0909@gmail.com
 
 -Parth Mishra at parthm172@gmail.com
+
+-Shivang Srivastava at shivangsrivastava086@gmail.com
 
 We can't wait to hear from you!
